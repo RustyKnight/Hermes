@@ -264,7 +264,9 @@ public struct MutableNotificationServiceManager {
 }
 
 public protocol NotificationService: NSObjectProtocol {
-  
+
+  var willPresentNotificiationDelegate: WillPresentNotificiationDelegate? { get set }
+
   func set(categories: Set<UNNotificationCategory>)
   func response(from: Notification) -> UNNotificationResponse?
   
@@ -376,7 +378,7 @@ public class DefaultNotificationService: NSObject, NotificationService, UNUserNo
   
   var triggerDelay: TimeInterval = 0.1
   public var willPresentNotificiationDelegate: WillPresentNotificiationDelegate?
-  
+
   public override init() {
     super.init()
     notificationCenter.delegate = self
