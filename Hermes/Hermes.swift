@@ -240,7 +240,7 @@ public extension UNUserNotificationCenter {
   
 }
 
-enum NotificationManagerPayload: String, Hashable {
+public enum NotificationManagerPayload: String, Hashable {
   case response = "NotificationPayload.response"
 }
 
