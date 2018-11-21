@@ -375,7 +375,7 @@ public class DefaultNotificationService: NSObject, NotificationService, UNUserNo
   let notificationCenter: UNUserNotificationCenter = UNUserNotificationCenter.current()
   
   var triggerDelay: TimeInterval = 0.1
-  var willPresentNotificiationDelegate: WillPresentNotificiationDelegate?
+  public var willPresentNotificiationDelegate: WillPresentNotificiationDelegate?
   
   public override init() {
     super.init()
@@ -426,7 +426,7 @@ public class DefaultNotificationService: NSObject, NotificationService, UNUserNo
     guard let delegate = willPresentNotificiationDelegate else {
       completionHandler([.alert, .sound, .badge])
       return
-    }    
+    }
     completionHandler(delegate.notificationService(self, willPresent: notification))
   }
   
