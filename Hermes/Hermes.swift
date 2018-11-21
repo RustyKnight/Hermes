@@ -9,7 +9,6 @@
 import Foundation
 import UserNotifications
 import Hydra
-import SwiftEventBus
 import AudioToolbox
 
 /**
@@ -397,7 +396,7 @@ public class DefaultNotificationService: NSObject, NotificationService, UNUserNo
     completionHandler()
     
     onBackgroundThreadDo {
-      SwiftEventBus.post(requestIdentifier, userInfo: userInfo)
+      NotificationCenter.default.post(name: NSNotification.Name(requestIdentifier), object: nil, userInfo: userInfo)
     }
   }
   
