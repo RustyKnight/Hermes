@@ -358,6 +358,16 @@ public protocol NotificationService: NSObjectProtocol {
            trigger: UNNotificationTrigger) -> Promise<Void>
 }
 
+extension NotificationServiceManager {
+  public static let didRecieveNotification: NSNotification.Name = NSNotification.Name("NotificationService.didRecieveNotification")
+}
+
+public protocol WillPresentNotificiationDelegate {
+  func notificationService(_ service: NotificationService,
+                           willPresent notification: UNNotification) -> UNNotificationPresentationOptions
+
+}
+
 // This will need to become a protocol
 /// Notification Service/Manager wrapped around the user notification center API
 public class DefaultNotificationService: NSObject, NotificationService, UNUserNotificationCenterDelegate {
@@ -365,6 +375,7 @@ public class DefaultNotificationService: NSObject, NotificationService, UNUserNo
   let notificationCenter: UNUserNotificationCenter = UNUserNotificationCenter.current()
   
   var triggerDelay: TimeInterval = 0.1
+  var willPresentNotificiationDelegate: WillPresentNotificiationDelegate?
   
   public override init() {
     super.init()
@@ -397,6 +408,7 @@ public class DefaultNotificationService: NSObject, NotificationService, UNUserNo
     
     onBackgroundThreadDo {
       NotificationCenter.default.post(name: NSNotification.Name(requestIdentifier), object: nil, userInfo: userInfo)
+      NotificationCenter.default.post(name: NotificationServiceManager.didRecieveNotification, object: nil, userInfo: userInfo)
     }
   }
   
@@ -411,7 +423,11 @@ public class DefaultNotificationService: NSObject, NotificationService, UNUserNo
     //        AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
     //      }
     //    }
-    completionHandler([.alert, .sound, .badge])
+    guard let delegate = willPresentNotificiationDelegate else {
+      completionHandler([.alert, .sound, .badge])
+      return
+    }    
+    completionHandler(delegate.notificationService(self, willPresent: notification))
   }
   
   public func add(identifier: StringIdentifiable,
