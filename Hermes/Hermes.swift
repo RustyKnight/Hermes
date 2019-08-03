@@ -154,7 +154,7 @@ public extension UNNotificationCategory {
 /// Promise based extension to NotificationCenter
 public extension UNUserNotificationCenter {
   
-  public func authorise(options: UNAuthorizationOptions) -> Promise<Void> {
+  func authorise(options: UNAuthorizationOptions) -> Promise<Void> {
     return Promise<Void>({ (fulfill, fail, _) in
       self.requestAuthorization(options: options, completionHandler: { (granted, error) in
         if let error = error {
@@ -170,31 +170,31 @@ public extension UNUserNotificationCenter {
     })
   }
   
-  public func removePendingNotificationRequests(withIdentifiers idetifiers: [StringIdentifiable]) {
+  func removePendingNotificationRequests(withIdentifiers idetifiers: [StringIdentifiable]) {
     let stringIdetifiers = idetifiers.map { $0.stringIdentifier }
     removePendingNotificationRequests(withIdentifiers: stringIdetifiers)
   }
   
-  public func removeDeliveredNotifications(withIdentifiers idetifiers: [StringIdentifiable]) {
+  func removeDeliveredNotifications(withIdentifiers idetifiers: [StringIdentifiable]) {
     let stringIdetifiers = idetifiers.map { $0.stringIdentifier }
     removeDeliveredNotifications(withIdentifiers: stringIdetifiers)
   }
   
-  public func pendingRequests(withIdentifier identifier: StringIdentifiable) -> Promise<[UNNotificationRequest]> {
+  func pendingRequests(withIdentifier identifier: StringIdentifiable) -> Promise<[UNNotificationRequest]> {
     return pendingRequests().then { (requests: [UNNotificationRequest]) -> Promise<[UNNotificationRequest]> in
       let filtered = requests.filter { $0.identifier == identifier.stringIdentifier }
       return Promise<[UNNotificationRequest]>(resolved: filtered)
     }
   }
   
-  public func deliveredNotifications(withIdentifier identifier: StringIdentifiable) -> Promise<[UNNotification]> {
+  func deliveredNotifications(withIdentifier identifier: StringIdentifiable) -> Promise<[UNNotification]> {
     return deliveredNotifications().then { (requests: [UNNotification]) -> Promise<[UNNotification]> in
       let filtered = requests.filter { $0.request.identifier == identifier.stringIdentifier }
       return Promise<[UNNotification]>(resolved: filtered)
     }
   }
   
-  public func pendingRequests() -> Promise<[UNNotificationRequest]> {
+  func pendingRequests() -> Promise<[UNNotificationRequest]> {
     return Promise<[UNNotificationRequest]>({ (fulfill, fail, _) in
       self.getPendingNotificationRequests(completionHandler: { (notifications) in
         fulfill(notifications)
@@ -202,7 +202,7 @@ public extension UNUserNotificationCenter {
     })
   }
   
-  public func settings() -> Promise<UNNotificationSettings> {
+  func settings() -> Promise<UNNotificationSettings> {
     return Promise<UNNotificationSettings>({ (fulfill, fail, _) in
       self.getNotificationSettings(completionHandler: { (settings) in
         fulfill(settings)
@@ -210,7 +210,7 @@ public extension UNUserNotificationCenter {
     })
   }
   
-  public func notificationCategories() -> Promise<Set<UNNotificationCategory>> {
+  func notificationCategories() -> Promise<Set<UNNotificationCategory>> {
     return Promise<Set<UNNotificationCategory>>({ (fulfill, fail, _) in
       self.getNotificationCategories(completionHandler: { (categories) in
         fulfill(categories)
@@ -218,7 +218,7 @@ public extension UNUserNotificationCenter {
     })
   }
   
-  public func deliveredNotifications() -> Promise<[UNNotification]> {
+  func deliveredNotifications() -> Promise<[UNNotification]> {
     return Promise<[UNNotification]>({ (fulfill, fail, _) in
       self.getDeliveredNotifications(completionHandler: { (notifications) in
         fulfill(notifications)
@@ -226,7 +226,7 @@ public extension UNUserNotificationCenter {
     })
   }
   
-  public func add(request: UNNotificationRequest) -> Promise<Void> {
+  func add(request: UNNotificationRequest) -> Promise<Void> {
     return Promise<Void>({ (fulfill, fail, _) in
       self.add(request, withCompletionHandler: { (error) in
         guard let error = error else {
