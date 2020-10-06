@@ -1,1 +1,1 @@
-binary "https://www.kiazenenterprises.org:8443/json/12.0b12A7209/Hydra" ~> 2.0.3
+github "mxcl/PromiseKit" ~> 6.8

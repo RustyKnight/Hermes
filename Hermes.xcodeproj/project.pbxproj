@@ -7,18 +7,37 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		18A45072252D276900BAB83C /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A45071252D276900BAB83C /* PromiseKit.framework */; };
+		18A45073252D276900BAB83C /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18A45071252D276900BAB83C /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		18A45078252D27C800BAB83C /* DispatchQueue+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A45076252D27C800BAB83C /* DispatchQueue+Helpers.swift */; };
+		18A45079252D27C800BAB83C /* Promise+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A45077252D27C800BAB83C /* Promise+Helper.swift */; };
 		70DB6ACE21A4F64E00366167 /* Hermes.h in Headers */ = {isa = PBXBuildFile; fileRef = 70DB6ACC21A4F64E00366167 /* Hermes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70DB6AD521A4F67A00366167 /* Hermes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DB6AD421A4F67A00366167 /* Hermes.swift */; };
-		70DB6AD821A4F77900366167 /* Hydra.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DB6AD721A4F77900366167 /* Hydra.framework */; };
 		70DB6ADA21A4F7CC00366167 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DB6AD921A4F7CC00366167 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		18A45074252D276900BAB83C /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				18A45073252D276900BAB83C /* PromiseKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		18A45071252D276900BAB83C /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
+		18A45076252D27C800BAB83C /* DispatchQueue+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Helpers.swift"; sourceTree = "<group>"; };
+		18A45077252D27C800BAB83C /* Promise+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Helper.swift"; sourceTree = "<group>"; };
 		70DB6AC921A4F64E00366167 /* Hermes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hermes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DB6ACC21A4F64E00366167 /* Hermes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hermes.h; sourceTree = "<group>"; };
 		70DB6ACD21A4F64E00366167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70DB6AD421A4F67A00366167 /* Hermes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Hermes.swift; sourceTree = "<group>"; };
-		70DB6AD721A4F77900366167 /* Hydra.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Hydra.framework; path = Carthage/Build/iOS/Hydra.framework; sourceTree = "<group>"; };
 		70DB6AD921A4F7CC00366167 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -28,13 +47,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				70DB6ADA21A4F7CC00366167 /* AudioToolbox.framework in Frameworks */,
-				70DB6AD821A4F77900366167 /* Hydra.framework in Frameworks */,
+				18A45072252D276900BAB83C /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18A45075252D27B600BAB83C /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				18A45076252D27C800BAB83C /* DispatchQueue+Helpers.swift */,
+				18A45077252D27C800BAB83C /* Promise+Helper.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
 		70DB6ABF21A4F64E00366167 = {
 			isa = PBXGroup;
 			children = (
@@ -55,6 +83,7 @@
 		70DB6ACB21A4F64E00366167 /* Hermes */ = {
 			isa = PBXGroup;
 			children = (
+				18A45075252D27B600BAB83C /* Extensions */,
 				70DB6ACC21A4F64E00366167 /* Hermes.h */,
 				70DB6ACD21A4F64E00366167 /* Info.plist */,
 				70DB6AD421A4F67A00366167 /* Hermes.swift */,
@@ -65,8 +94,8 @@
 		70DB6AD621A4F77900366167 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				18A45071252D276900BAB83C /* PromiseKit.framework */,
 				70DB6AD921A4F7CC00366167 /* AudioToolbox.framework */,
-				70DB6AD721A4F77900366167 /* Hydra.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -93,6 +122,7 @@
 				70DB6AC521A4F64E00366167 /* Sources */,
 				70DB6AC621A4F64E00366167 /* Frameworks */,
 				70DB6AC721A4F64E00366167 /* Resources */,
+				18A45074252D276900BAB83C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -151,7 +181,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18A45079252D27C800BAB83C /* Promise+Helper.swift in Sources */,
 				70DB6AD521A4F67A00366167 /* Hermes.swift in Sources */,
+				18A45078252D27C800BAB83C /* DispatchQueue+Helpers.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
