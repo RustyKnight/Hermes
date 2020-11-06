@@ -8,27 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		18A45072252D276900BAB83C /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A45071252D276900BAB83C /* PromiseKit.framework */; };
-		18A45073252D276900BAB83C /* PromiseKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18A45071252D276900BAB83C /* PromiseKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18A45078252D27C800BAB83C /* DispatchQueue+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A45076252D27C800BAB83C /* DispatchQueue+Helpers.swift */; };
 		18A45079252D27C800BAB83C /* Promise+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A45077252D27C800BAB83C /* Promise+Helper.swift */; };
+		18F878132554CE7A00B657F5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DB6AD921A4F7CC00366167 /* AudioToolbox.framework */; };
 		70DB6ACE21A4F64E00366167 /* Hermes.h in Headers */ = {isa = PBXBuildFile; fileRef = 70DB6ACC21A4F64E00366167 /* Hermes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70DB6AD521A4F67A00366167 /* Hermes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DB6AD421A4F67A00366167 /* Hermes.swift */; };
-		70DB6ADA21A4F7CC00366167 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DB6AD921A4F7CC00366167 /* AudioToolbox.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		18A45074252D276900BAB83C /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				18A45073252D276900BAB83C /* PromiseKit.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		18A45071252D276900BAB83C /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
@@ -46,8 +31,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70DB6ADA21A4F7CC00366167 /* AudioToolbox.framework in Frameworks */,
 				18A45072252D276900BAB83C /* PromiseKit.framework in Frameworks */,
+				18F878132554CE7A00B657F5 /* AudioToolbox.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,7 +107,6 @@
 				70DB6AC521A4F64E00366167 /* Sources */,
 				70DB6AC621A4F64E00366167 /* Frameworks */,
 				70DB6AC721A4F64E00366167 /* Resources */,
-				18A45074252D276900BAB83C /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -334,6 +318,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.kaizen.Hermes;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -365,6 +350,7 @@
 					"@executable_path/Frameworks",
 					"@loader_path/Frameworks",
 				);
+				MARKETING_VERSION = 2.0.1;
 				PRODUCT_BUNDLE_IDENTIFIER = org.kaizen.Hermes;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
