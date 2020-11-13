@@ -8,7 +8,7 @@
 
 import Foundation
 import UserNotifications
-import Hydra
+import PromiseKit
 import AudioToolbox
 
 /**
@@ -155,19 +155,19 @@ public extension UNNotificationCategory {
 public extension UNUserNotificationCenter {
   
   func authorise(options: UNAuthorizationOptions) -> Promise<Void> {
-    return Promise<Void>({ (fulfill, fail, _) in
-      self.requestAuthorization(options: options, completionHandler: { (granted, error) in
-        if let error = error {
-          fail(error)
-          return
-        }
-        guard granted else {
-          fail(NotificationsServiceError.authorisationFailed)
-          return
-        }
-        fulfill(())
-      })
-    })
+		return Promise<Void> { (resolver) in
+			self.requestAuthorization(options: options, completionHandler: { (granted, error) in
+				if let error = error {
+					resolver.reject(error)
+					return
+				}
+				guard granted else {
+					resolver.reject(NotificationsServiceError.authorisationFailed)
+					return
+				}
+				resolver.fulfill(())
+			})
+		}
   }
   
   func removePendingNotificationRequests(withIdentifiers idetifiers: [StringIdentifiable]) {
@@ -183,59 +183,59 @@ public extension UNUserNotificationCenter {
   func pendingRequests(withIdentifier identifier: StringIdentifiable) -> Promise<[UNNotificationRequest]> {
     return pendingRequests().then { (requests: [UNNotificationRequest]) -> Promise<[UNNotificationRequest]> in
       let filtered = requests.filter { $0.identifier == identifier.stringIdentifier }
-      return Promise<[UNNotificationRequest]>(resolved: filtered)
+			return .value(filtered)
     }
   }
   
   func deliveredNotifications(withIdentifier identifier: StringIdentifiable) -> Promise<[UNNotification]> {
     return deliveredNotifications().then { (requests: [UNNotification]) -> Promise<[UNNotification]> in
       let filtered = requests.filter { $0.request.identifier == identifier.stringIdentifier }
-      return Promise<[UNNotification]>(resolved: filtered)
+			return .value(filtered)
     }
   }
   
   func pendingRequests() -> Promise<[UNNotificationRequest]> {
-    return Promise<[UNNotificationRequest]>({ (fulfill, fail, _) in
-      self.getPendingNotificationRequests(completionHandler: { (notifications) in
-        fulfill(notifications)
-      })
-    })
+		return Promise<[UNNotificationRequest]> { (resolver) in
+			self.getPendingNotificationRequests(completionHandler: { (notifications) in
+				resolver.fulfill(notifications)
+			})
+		}
   }
   
   func settings() -> Promise<UNNotificationSettings> {
-    return Promise<UNNotificationSettings>({ (fulfill, fail, _) in
-      self.getNotificationSettings(completionHandler: { (settings) in
-        fulfill(settings)
-      })
-    })
+		return Promise<UNNotificationSettings> { (resolver) in
+			self.getNotificationSettings(completionHandler: { (settings) in
+				resolver.fulfill(settings)
+			})
+		}
   }
   
   func notificationCategories() -> Promise<Set<UNNotificationCategory>> {
-    return Promise<Set<UNNotificationCategory>>({ (fulfill, fail, _) in
-      self.getNotificationCategories(completionHandler: { (categories) in
-        fulfill(categories)
-      })
-    })
+		return Promise<Set<UNNotificationCategory>> { (resolver) in
+			self.getNotificationCategories(completionHandler: { (categories) in
+				resolver.fulfill(categories)
+			})
+		}
   }
   
   func deliveredNotifications() -> Promise<[UNNotification]> {
-    return Promise<[UNNotification]>({ (fulfill, fail, _) in
-      self.getDeliveredNotifications(completionHandler: { (notifications) in
-        fulfill(notifications)
-      })
-    })
+		return Promise<[UNNotification]> { (resolver) in
+			self.getDeliveredNotifications(completionHandler: { (notifications) in
+				resolver.fulfill(notifications)
+			})
+		}
   }
   
   func add(request: UNNotificationRequest) -> Promise<Void> {
-    return Promise<Void>({ (fulfill, fail, _) in
-      self.add(request, withCompletionHandler: { (error) in
-        guard let error = error else {
-          fulfill(()) // Ain't that just dumb
-          return
-        }
-        fail(error)
-      })
-    })
+		return Promise<Void> { (resolver) in
+			self.add(request, withCompletionHandler: { (error) in
+				guard let error = error else {
+					resolver.fulfill(()) // Ain't that just dumb
+					return
+				}
+				resolver.reject(error)
+			})
+		}
   }
   
 }
@@ -457,7 +457,7 @@ public class DefaultNotificationService: NSObject, NotificationService, UNUserNo
     if let alertStyle = alertStyle {
       content.sound = alertStyle.sound
       if alertStyle.vibrate {
-        after(triggerDelay, in: .userInitiated).then { (void) in
+				after(seconds: triggerDelay).done { (void) in
           AudioServicesPlayAlertSound(SystemSoundID(kSystemSoundID_Vibrate))
         }
       }
@@ -720,11 +720,3 @@ func onBackgroundThreadDo(_ call: @escaping () -> Void) {
     call()
   }
 }
-
-// Move to "BeamPromiseKit"
-func after(_ interval: TimeInterval, in context: Context = .main) -> Promise<Void> {
-  return Promise<Void>(in: context) { fulfill, fail, _ in
-    fulfill(())
-    }.defer(in: context, 1.0)
-}
-
