@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18A45072252D276900BAB83C /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A45071252D276900BAB83C /* PromiseKit.framework */; };
 		18A45078252D27C800BAB83C /* DispatchQueue+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A45076252D27C800BAB83C /* DispatchQueue+Helpers.swift */; };
 		18A45079252D27C800BAB83C /* Promise+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A45077252D27C800BAB83C /* Promise+Helper.swift */; };
 		18F878132554CE7A00B657F5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DB6AD921A4F7CC00366167 /* AudioToolbox.framework */; };
+		70533104255F4D8C00BFF181 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A45071252D276900BAB83C /* PromiseKit.framework */; };
 		70DB6ACE21A4F64E00366167 /* Hermes.h in Headers */ = {isa = PBXBuildFile; fileRef = 70DB6ACC21A4F64E00366167 /* Hermes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70DB6AD521A4F67A00366167 /* Hermes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DB6AD421A4F67A00366167 /* Hermes.swift */; };
 /* End PBXBuildFile section */
@@ -31,8 +31,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18A45072252D276900BAB83C /* PromiseKit.framework in Frameworks */,
 				18F878132554CE7A00B657F5 /* AudioToolbox.framework in Frameworks */,
+				70533104255F4D8C00BFF181 /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -123,7 +123,7 @@
 		70DB6AC021A4F64E00366167 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				LastUpgradeCheck = 1220;
 				ORGANIZATIONNAME = "Kaizen Enteripises";
 				TargetAttributes = {
 					70DB6AC821A4F64E00366167 = {
@@ -200,6 +200,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -226,7 +227,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -264,6 +265,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -284,7 +286,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
