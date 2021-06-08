@@ -3,22 +3,37 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		18A45078252D27C800BAB83C /* DispatchQueue+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A45076252D27C800BAB83C /* DispatchQueue+Helpers.swift */; };
 		18A45079252D27C800BAB83C /* Promise+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A45077252D27C800BAB83C /* Promise+Helper.swift */; };
+		18C4B90A266F7B4B0025B993 /* PromiseKit.xcframework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18C4B909266F7B4B0025B993 /* PromiseKit.xcframework */; };
+		18C4B90B266F7B4B0025B993 /* PromiseKit.xcframework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 18C4B909266F7B4B0025B993 /* PromiseKit.xcframework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		18F878132554CE7A00B657F5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DB6AD921A4F7CC00366167 /* AudioToolbox.framework */; };
-		70533104255F4D8C00BFF181 /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A45071252D276900BAB83C /* PromiseKit.framework */; };
 		70DB6ACE21A4F64E00366167 /* Hermes.h in Headers */ = {isa = PBXBuildFile; fileRef = 70DB6ACC21A4F64E00366167 /* Hermes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70DB6AD521A4F67A00366167 /* Hermes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DB6AD421A4F67A00366167 /* Hermes.swift */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		18C4B90C266F7B4B0025B993 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				18C4B90B266F7B4B0025B993 /* PromiseKit.xcframework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		18A45071252D276900BAB83C /* PromiseKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PromiseKit.framework; path = Carthage/Build/iOS/PromiseKit.framework; sourceTree = "<group>"; };
 		18A45076252D27C800BAB83C /* DispatchQueue+Helpers.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DispatchQueue+Helpers.swift"; sourceTree = "<group>"; };
 		18A45077252D27C800BAB83C /* Promise+Helper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Promise+Helper.swift"; sourceTree = "<group>"; };
+		18C4B909266F7B4B0025B993 /* PromiseKit.xcframework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcframework; name = PromiseKit.xcframework; path = Carthage/Build/PromiseKit.xcframework; sourceTree = "<group>"; };
 		70DB6AC921A4F64E00366167 /* Hermes.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Hermes.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		70DB6ACC21A4F64E00366167 /* Hermes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Hermes.h; sourceTree = "<group>"; };
 		70DB6ACD21A4F64E00366167 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,8 +46,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				18C4B90A266F7B4B0025B993 /* PromiseKit.xcframework in Frameworks */,
 				18F878132554CE7A00B657F5 /* AudioToolbox.framework in Frameworks */,
-				70533104255F4D8C00BFF181 /* PromiseKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,7 +94,7 @@
 		70DB6AD621A4F77900366167 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				18A45071252D276900BAB83C /* PromiseKit.framework */,
+				18C4B909266F7B4B0025B993 /* PromiseKit.xcframework */,
 				70DB6AD921A4F7CC00366167 /* AudioToolbox.framework */,
 			);
 			name = Frameworks;
@@ -107,6 +122,7 @@
 				70DB6AC521A4F64E00366167 /* Sources */,
 				70DB6AC621A4F64E00366167 /* Frameworks */,
 				70DB6AC721A4F64E00366167 /* Resources */,
+				18C4B90C266F7B4B0025B993 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
