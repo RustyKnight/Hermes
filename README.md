@@ -1,6 +1,6 @@
 ![Swift](https://img.shields.io/badge/Swift-5.0-orange) ![iOS](https://img.shields.io/badge/iOS-12.0-orange)
 
-Herms
+# Herms
 
 Is a helper API for the `UserNotifications` API, intended to make it easier and simpler to build user presentable notifications.
 
