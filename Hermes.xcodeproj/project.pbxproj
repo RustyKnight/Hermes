@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		18A45072252D276900BAB83C /* PromiseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 18A45071252D276900BAB83C /* PromiseKit.framework */; };
 		18A45078252D27C800BAB83C /* DispatchQueue+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A45076252D27C800BAB83C /* DispatchQueue+Helpers.swift */; };
 		18A45079252D27C800BAB83C /* Promise+Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18A45077252D27C800BAB83C /* Promise+Helper.swift */; };
 		18F878132554CE7A00B657F5 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 70DB6AD921A4F7CC00366167 /* AudioToolbox.framework */; };
+		7074BC802B537EFE00BAF904 /* PromiseKit in Frameworks */ = {isa = PBXBuildFile; productRef = 7074BC7F2B537EFE00BAF904 /* PromiseKit */; };
 		70DB6ACE21A4F64E00366167 /* Hermes.h in Headers */ = {isa = PBXBuildFile; fileRef = 70DB6ACC21A4F64E00366167 /* Hermes.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		70DB6AD521A4F67A00366167 /* Hermes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DB6AD421A4F67A00366167 /* Hermes.swift */; };
 /* End PBXBuildFile section */
@@ -31,8 +31,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				18A45072252D276900BAB83C /* PromiseKit.framework in Frameworks */,
 				18F878132554CE7A00B657F5 /* AudioToolbox.framework in Frameworks */,
+				7074BC802B537EFE00BAF904 /* PromiseKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -113,6 +113,9 @@
 			dependencies = (
 			);
 			name = Hermes;
+			packageProductDependencies = (
+				7074BC7F2B537EFE00BAF904 /* PromiseKit */,
+			);
 			productName = Hermes;
 			productReference = 70DB6AC921A4F64E00366167 /* Hermes.framework */;
 			productType = "com.apple.product-type.framework";
@@ -123,7 +126,8 @@
 		70DB6AC021A4F64E00366167 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1010;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1520;
 				ORGANIZATIONNAME = "Kaizen Enteripises";
 				TargetAttributes = {
 					70DB6AC821A4F64E00366167 = {
@@ -141,6 +145,9 @@
 				Base,
 			);
 			mainGroup = 70DB6ABF21A4F64E00366167;
+			packageReferences = (
+				7074BC7E2B537EFE00BAF904 /* XCRemoteSwiftPackageReference "PromiseKit" */,
+			);
 			productRefGroup = 70DB6ACA21A4F64E00366167 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -200,6 +207,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -212,6 +220,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -226,7 +235,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -264,6 +273,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -276,6 +286,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -284,7 +295,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -307,6 +318,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -319,6 +331,8 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0.1;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = org.kaizen.Hermes;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -339,6 +353,7 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_MODULE_VERIFIER = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Carthage/Build/iOS",
@@ -351,6 +366,8 @@
 					"@loader_path/Frameworks",
 				);
 				MARKETING_VERSION = 2.0.1;
+				MODULE_VERIFIER_SUPPORTED_LANGUAGES = "objective-c objective-c++";
+				MODULE_VERIFIER_SUPPORTED_LANGUAGE_STANDARDS = "gnu11 gnu++14";
 				PRODUCT_BUNDLE_IDENTIFIER = org.kaizen.Hermes;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
@@ -381,6 +398,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		7074BC7E2B537EFE00BAF904 /* XCRemoteSwiftPackageReference "PromiseKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mxcl/PromiseKit";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.1.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		7074BC7F2B537EFE00BAF904 /* PromiseKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 7074BC7E2B537EFE00BAF904 /* XCRemoteSwiftPackageReference "PromiseKit" */;
+			productName = PromiseKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 70DB6AC021A4F64E00366167 /* Project object */;
 }
