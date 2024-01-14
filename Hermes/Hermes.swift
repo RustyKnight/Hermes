@@ -714,7 +714,6 @@ public class DefaultNotificationService: NSObject, NotificationService, UNUserNo
   }
 }
 
-// Move to "BeamCoreKit"
 func onBackgroundThreadDo(_ call: @escaping () -> Void) {
   DispatchQueue.global().async {
     call()
